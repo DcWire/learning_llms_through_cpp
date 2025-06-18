@@ -1,9 +1,21 @@
+#include <iostream>
+#include "llmvector.h"
 
+// Forward declaration of test function
+void runTests();
 
-#include<iostream>
-#include "llmvectortests.h"
 int main() {
-    
+    std::cout << "LLMVector Implementation - C++ for LLM Systems Engineering" << std::endl;
+    std::cout << "==========================================================" << std::endl;
+
+    // Run comprehensive test suite
     runTests();
+
+    std::cout << "\n" << std::endl;
+    std::cout << "Implementation complete! Your LLMVector is ready for production use." << std::endl;
+
     return 0;
 }
+
+// Include the test implementation
+#include "llmvectortests.cpp"
