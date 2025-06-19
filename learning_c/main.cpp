@@ -1,5 +1,5 @@
 #include <iostream>
-#include "llmvector.h"
+//#include "llmvector.h"
 
 // Forward declaration of test function
 void runTests();
@@ -17,5 +17,8 @@ int main() {
     return 0;
 }
 
-// Include the test implementation
-#include "llmvectortests.cpp"
+//// Include the test implementation
+//#ifndef LLMVECTORTESTS_H
+//#define LLMVECTORTESTS_H
+//#include "llmvectortests.cpp"
+//#endif

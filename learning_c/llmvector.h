@@ -30,7 +30,14 @@ public:
     }
 
     ~LLMVector() {
-        delete[] data;
+        
+        if (data != nullptr)
+            delete[] data;
+        data = nullptr;
+        
+        size = 0;
+        capacity = 0;
+        
     }
 
     LLMVector(const LLMVector& other)
@@ -48,17 +55,31 @@ public:
         if (this == &other) {
             return *this;
         }
-
-        delete[] data;
-
-        data = other.data;
+        
+        
+        // Delete the data owned by the current vector
+        if (data != nullptr)
+            delete[] data;
+        
+        // Lets not do a shallow copy which leads to memory issues when the object is being deleted
+//        data = other.data;
         capacity = other.capacity;
         size = other.size;
+        
+        
+        if(capacity > 0) {
+            data = new T[capacity];
+            
+            for(size_t i=0; i<size; ++i) {
+                data[i] = other.data[i];
+            }
+        } else {
+            data = nullptr;
+        }
+        
+        return *this;
 
-        // Do I leave other in an empty state?
-//        other.data = nullptr;
-//        other.capacity = 0;
-//        other.size = 0;
+        
 
         return *this;
     }
