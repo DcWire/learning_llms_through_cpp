@@ -30,14 +30,14 @@ public:
     }
 
     ~LLMVector() {
-        
+
         if (data != nullptr)
             delete[] data;
         data = nullptr;
-        
+
         size = 0;
         capacity = 0;
-        
+
     }
 
     LLMVector(const LLMVector& other)
@@ -55,33 +55,30 @@ public:
         if (this == &other) {
             return *this;
         }
-        
-        
+
+
         // Delete the data owned by the current vector
         if (data != nullptr)
             delete[] data;
-        
+
         // Lets not do a shallow copy which leads to memory issues when the object is being deleted
-//        data = other.data;
+        // data = other.data;
         capacity = other.capacity;
         size = other.size;
-        
-        
+
+
         if(capacity > 0) {
             data = new T[capacity];
-            
+
             for(size_t i=0; i<size; ++i) {
                 data[i] = other.data[i];
             }
         } else {
             data = nullptr;
         }
-        
-        return *this;
-
-        
 
         return *this;
+
     }
 
     void push_back(const T& value) {
@@ -95,7 +92,36 @@ public:
         ++size;
     }
 
+    // Move constructor
+    LLMVector(LLMVector&& other) noexcept
+        : data(other.data),
+          capacity(other.capacity),
+          size(other.size)
+    {
+        other.data = nullptr;
+        other.capacity = 0;
+        other.size = 0;
+    }
 
+
+    // Move assignment - was missing this within my class
+    LLMVector& operator=(LLMVector&& other) noexcept {
+        if (this != &other) {
+            // Release current resources
+            delete[] data;
+
+            // Transfer ownership
+            data = other.data;
+            capacity = other.capacity;
+            size = other.size;
+
+            // Reset source
+            other.data = nullptr;
+            other.capacity = 0;
+            other.size = 0;
+        }
+        return *this;
+    }
     // TODO: Whats the difference between this and the const version
     T& at(size_t index) {
         if(index >= size) {

@@ -1,2 +1,2 @@
-vector_tests 5 0.00197792
+vector_tests 12 0.000634747
 ---

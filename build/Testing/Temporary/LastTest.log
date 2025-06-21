@@ -1,10 +1,10 @@
-Start testing: Jun 21 09:42 UTC
+Start testing: Jun 21 17:26 UTC
 ----------------------------------------------------------
 1/1 Testing: vector_tests
 1/1 Test: vector_tests
 Command: "/teamspace/studios/this_studio/learning_llms_through_cpp/build/project1-llmvector/tests/vector_tests"
 Directory: /teamspace/studios/this_studio/learning_llms_through_cpp/build/project1-llmvector/tests
-"vector_tests" start time: Jun 21 09:42 UTC
+"vector_tests" start time: Jun 21 17:26 UTC
 Output:
 ----------------------------------------------------------
 LLMVector Implementation
@@ -43,10 +43,11 @@ LLMVector Comprehensive Test Suite
 
 === Testing Move Semantics ===
 ✓ PASS: Move constructor transfers size
-✗ FAIL: Moved-from vector is empty
+✓ PASS: Moved-from vector is empty
 ✓ PASS: Move constructor transfers data correctly
 ✓ PASS: Move assignment transfers size
-✗ FAIL: Moved-from vector is empty after assignment
+✓ PASS: Moved-from vector is empty after assignment
+AFTER MOVE: 0
 ✓ PASS: Move assignment transfers data correctly
 
 === Testing Capacity Management ===
@@ -72,14 +73,14 @@ LLMVector Comprehensive Test Suite
 ✓ PASS: Clear preserves capacity
 
 === TEST SUMMARY ===
-Tests passed: 41/43
-❌ Some tests failed.
+Tests passed: 43/43
+🎉 ALL TESTS PASSED! 🎉
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"vector_tests" end time: Jun 21 09:42 UTC
+"vector_tests" end time: Jun 21 17:26 UTC
 "vector_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 21 09:42 UTC
+End testing: Jun 21 17:26 UTC
