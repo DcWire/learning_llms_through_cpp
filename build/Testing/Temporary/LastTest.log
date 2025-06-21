@@ -1,0 +1,85 @@
+Start testing: Jun 21 09:42 UTC
+----------------------------------------------------------
+1/1 Testing: vector_tests
+1/1 Test: vector_tests
+Command: "/teamspace/studios/this_studio/learning_llms_through_cpp/build/project1-llmvector/tests/vector_tests"
+Directory: /teamspace/studios/this_studio/learning_llms_through_cpp/build/project1-llmvector/tests
+"vector_tests" start time: Jun 21 09:42 UTC
+Output:
+----------------------------------------------------------
+LLMVector Implementation
+==========================================================
+LLMVector Comprehensive Test Suite
+==================================
+
+=== Testing Initialization ===
+✓ PASS: Default constructor creates empty vector
+✓ PASS: Default constructor has minimum capacity
+✓ PASS: Default vector is empty
+✓ PASS: Parameterized constructor creates empty vector
+✓ PASS: Parameterized constructor respects capacity
+✓ PASS: Float vector construction works
+✓ PASS: String vector construction works
+
+=== Testing Push Back and Access ===
+✓ PASS: Size correct after push_back operations
+✓ PASS: All elements match reference vector
+✓ PASS: Capacity grows when needed
+✓ PASS: Size correct after capacity growth
+
+=== Testing Bounds Checking ===
+✓ PASS: Accessing empty vector throws exception
+✓ PASS: Valid access works correctly
+✓ PASS: Accessing beyond size throws exception
+
+=== Testing Copy Semantics ===
+✓ PASS: Copy constructor preserves size
+✓ PASS: Copy constructor creates correct deep copy
+✓ PASS: Copied vector is independent
+✓ PASS: Copy assignment preserves size
+✓ PASS: Copy assignment creates correct deep copy
+✓ PASS: Self-assignment preserves size
+✓ PASS: Self-assignment preserves data
+
+=== Testing Move Semantics ===
+✓ PASS: Move constructor transfers size
+✗ FAIL: Moved-from vector is empty
+✓ PASS: Move constructor transfers data correctly
+✓ PASS: Move assignment transfers size
+✗ FAIL: Moved-from vector is empty after assignment
+✓ PASS: Move assignment transfers data correctly
+
+=== Testing Capacity Management ===
+✓ PASS: Reserve doesn't shrink capacity
+✓ PASS: Reserve increases capacity
+✓ PASS: Reserve doesn't affect size
+✓ PASS: No reallocation after sufficient reserve
+
+=== Testing LLM-Specific Use Cases ===
+✓ PASS: Token sequence has correct length
+✓ PASS: First token is correct
+✓ PASS: Embedding vector has correct size
+✓ PASS: Embedding values are correct
+✓ PASS: Batch contains correct number of sequences
+✓ PASS: Variable length sequences work
+
+=== Testing Memory Management ===
+✓ PASS: Multiple allocation/deallocation cycles complete
+✓ PASS: Zero capacity vector can still grow
+✓ PASS: Zero capacity vector stores elements correctly
+✓ PASS: Clear makes vector empty
+✓ PASS: Vector reports empty after clear
+✓ PASS: Clear preserves capacity
+
+=== TEST SUMMARY ===
+Tests passed: 41/43
+❌ Some tests failed.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"vector_tests" end time: Jun 21 09:42 UTC
+"vector_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 21 09:42 UTC
