@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/teamspace/studios/this_studio/learning_llms_through_cpp/build/project1-llmvector/cmake_install.cmake")
+  include("/teamspace/studios/this_studio/learning_llms_through_cpp/build/project2-token-processing/cmake_install.cmake")
 
 endif()
 

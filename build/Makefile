@@ -147,6 +147,32 @@ vector_tests/fast:
 	$(MAKE) -f project1-llmvector/tests/CMakeFiles/vector_tests.dir/build.make project1-llmvector/tests/CMakeFiles/vector_tests.dir/build
 .PHONY : vector_tests/fast
 
+#=============================================================================
+# Target rules for targets named token_processing
+
+# Build rule for target.
+token_processing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 token_processing
+.PHONY : token_processing
+
+# fast build rule for target.
+token_processing/fast:
+	$(MAKE) -f project2-token-processing/CMakeFiles/token_processing.dir/build.make project2-token-processing/CMakeFiles/token_processing.dir/build
+.PHONY : token_processing/fast
+
+#=============================================================================
+# Target rules for targets named app
+
+# Build rule for target.
+app: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 app
+.PHONY : app
+
+# fast build rule for target.
+app/fast:
+	$(MAKE) -f project2-token-processing/examples/CMakeFiles/app.dir/build.make project2-token-processing/examples/CMakeFiles/app.dir/build
+.PHONY : app/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -158,6 +184,8 @@ help:
 	@echo "... test"
 	@echo "... vector_example"
 	@echo "... vector_tests"
+	@echo "... token_processing"
+	@echo "... app"
 .PHONY : help
 
 

@@ -54,16 +54,19 @@ CMAKE_BINARY_DIR = /teamspace/studios/this_studio/learning_llms_through_cpp/buil
 
 # The main recursive "all" target.
 all: project1-llmvector/all
+all: project2-token-processing/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: project1-llmvector/preinstall
+preinstall: project2-token-processing/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: project1-llmvector/clean
+clean: project2-token-processing/clean
 
 .PHONY : clean
 
@@ -125,13 +128,51 @@ project1-llmvector/tests/clean: project1-llmvector/tests/CMakeFiles/vector_tests
 .PHONY : project1-llmvector/tests/clean
 
 #=============================================================================
+# Directory level rules for directory project2-token-processing
+
+# Recursive "all" directory target.
+project2-token-processing/all: project2-token-processing/CMakeFiles/token_processing.dir/all
+project2-token-processing/all: project2-token-processing/examples/all
+
+.PHONY : project2-token-processing/all
+
+# Recursive "preinstall" directory target.
+project2-token-processing/preinstall: project2-token-processing/examples/preinstall
+
+.PHONY : project2-token-processing/preinstall
+
+# Recursive "clean" directory target.
+project2-token-processing/clean: project2-token-processing/CMakeFiles/token_processing.dir/clean
+project2-token-processing/clean: project2-token-processing/examples/clean
+
+.PHONY : project2-token-processing/clean
+
+#=============================================================================
+# Directory level rules for directory project2-token-processing/examples
+
+# Recursive "all" directory target.
+project2-token-processing/examples/all: project2-token-processing/examples/CMakeFiles/app.dir/all
+
+.PHONY : project2-token-processing/examples/all
+
+# Recursive "preinstall" directory target.
+project2-token-processing/examples/preinstall:
+
+.PHONY : project2-token-processing/examples/preinstall
+
+# Recursive "clean" directory target.
+project2-token-processing/examples/clean: project2-token-processing/examples/CMakeFiles/app.dir/clean
+
+.PHONY : project2-token-processing/examples/clean
+
+#=============================================================================
 # Target rules for target project1-llmvector/examples/CMakeFiles/vector_example.dir
 
 # All Build rule for target.
 project1-llmvector/examples/CMakeFiles/vector_example.dir/all:
 	$(MAKE) -f project1-llmvector/examples/CMakeFiles/vector_example.dir/build.make project1-llmvector/examples/CMakeFiles/vector_example.dir/depend
 	$(MAKE) -f project1-llmvector/examples/CMakeFiles/vector_example.dir/build.make project1-llmvector/examples/CMakeFiles/vector_example.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=1,2 "Built target vector_example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=5,6 "Built target vector_example"
 .PHONY : project1-llmvector/examples/CMakeFiles/vector_example.dir/all
 
 # Build rule for subdir invocation for target.
@@ -158,7 +199,7 @@ project1-llmvector/examples/CMakeFiles/vector_example.dir/clean:
 project1-llmvector/tests/CMakeFiles/vector_tests.dir/all:
 	$(MAKE) -f project1-llmvector/tests/CMakeFiles/vector_tests.dir/build.make project1-llmvector/tests/CMakeFiles/vector_tests.dir/depend
 	$(MAKE) -f project1-llmvector/tests/CMakeFiles/vector_tests.dir/build.make project1-llmvector/tests/CMakeFiles/vector_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=3,4 "Built target vector_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=7,8 "Built target vector_tests"
 .PHONY : project1-llmvector/tests/CMakeFiles/vector_tests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -177,6 +218,60 @@ vector_tests: project1-llmvector/tests/CMakeFiles/vector_tests.dir/rule
 project1-llmvector/tests/CMakeFiles/vector_tests.dir/clean:
 	$(MAKE) -f project1-llmvector/tests/CMakeFiles/vector_tests.dir/build.make project1-llmvector/tests/CMakeFiles/vector_tests.dir/clean
 .PHONY : project1-llmvector/tests/CMakeFiles/vector_tests.dir/clean
+
+#=============================================================================
+# Target rules for target project2-token-processing/CMakeFiles/token_processing.dir
+
+# All Build rule for target.
+project2-token-processing/CMakeFiles/token_processing.dir/all:
+	$(MAKE) -f project2-token-processing/CMakeFiles/token_processing.dir/build.make project2-token-processing/CMakeFiles/token_processing.dir/depend
+	$(MAKE) -f project2-token-processing/CMakeFiles/token_processing.dir/build.make project2-token-processing/CMakeFiles/token_processing.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=3,4 "Built target token_processing"
+.PHONY : project2-token-processing/CMakeFiles/token_processing.dir/all
+
+# Build rule for subdir invocation for target.
+project2-token-processing/CMakeFiles/token_processing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 project2-token-processing/CMakeFiles/token_processing.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 0
+.PHONY : project2-token-processing/CMakeFiles/token_processing.dir/rule
+
+# Convenience name for target.
+token_processing: project2-token-processing/CMakeFiles/token_processing.dir/rule
+
+.PHONY : token_processing
+
+# clean rule for target.
+project2-token-processing/CMakeFiles/token_processing.dir/clean:
+	$(MAKE) -f project2-token-processing/CMakeFiles/token_processing.dir/build.make project2-token-processing/CMakeFiles/token_processing.dir/clean
+.PHONY : project2-token-processing/CMakeFiles/token_processing.dir/clean
+
+#=============================================================================
+# Target rules for target project2-token-processing/examples/CMakeFiles/app.dir
+
+# All Build rule for target.
+project2-token-processing/examples/CMakeFiles/app.dir/all: project2-token-processing/CMakeFiles/token_processing.dir/all
+	$(MAKE) -f project2-token-processing/examples/CMakeFiles/app.dir/build.make project2-token-processing/examples/CMakeFiles/app.dir/depend
+	$(MAKE) -f project2-token-processing/examples/CMakeFiles/app.dir/build.make project2-token-processing/examples/CMakeFiles/app.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=1,2 "Built target app"
+.PHONY : project2-token-processing/examples/CMakeFiles/app.dir/all
+
+# Build rule for subdir invocation for target.
+project2-token-processing/examples/CMakeFiles/app.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 project2-token-processing/examples/CMakeFiles/app.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 0
+.PHONY : project2-token-processing/examples/CMakeFiles/app.dir/rule
+
+# Convenience name for target.
+app: project2-token-processing/examples/CMakeFiles/app.dir/rule
+
+.PHONY : app
+
+# clean rule for target.
+project2-token-processing/examples/CMakeFiles/app.dir/clean:
+	$(MAKE) -f project2-token-processing/examples/CMakeFiles/app.dir/build.make project2-token-processing/examples/CMakeFiles/app.dir/clean
+.PHONY : project2-token-processing/examples/CMakeFiles/app.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

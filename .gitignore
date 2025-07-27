@@ -1,3 +1,5 @@
 learning_c.xcodeproj
 build
 Testing/**
+compile_commands.json
+.cache
