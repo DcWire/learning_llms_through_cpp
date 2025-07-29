@@ -5,7 +5,7 @@ int main() {
     BytePairAlgorithm tokenizer(100);
     tokenizer.train(
         {
-            "My name is Anas",
+            "My name is Anas and I",
             "I love playing football"
         }
     );

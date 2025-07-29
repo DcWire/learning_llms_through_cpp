@@ -26,15 +26,34 @@ std::string BytePairAlgorithm::detokenize(const std::vector<std::string>& tokens
 
 void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
     std::unordered_map<std::string, int> count;
+    std::vector<std::vector<std::string>> words;
 
     for(int i=0; i<corpus.size(); i++) {
-        // std::transform(corpus[i].begin(), corpus[i].end(), corpus[i].begin(), std::tolower);
+        // Can optimize this further by just initializing a single vector object
         std::vector<std::string> split_sentence = this->split(corpus[i], ' ');
-        for (int j=0; j<split_sentence.size(); j++) {
-            std::cout<<split_sentence[j]<<" "<<std::endl;
+
+        for(int k=0; k<split_sentence.size(); k++) {
+            count[split_sentence[k]]++;
         }
-        count[corpus[i]]++;
     }
+
+    for(auto &i: count) {
+        std::vector<std::string> vec(i.first.length() + 1, "");
+        for(int j=0; j<i.first.length(); j++) {
+            vec[j] = i.first[j];
+        }
+        vec[i.first.length()] = "</w>";
+        words.push_back(vec);
+    }
+
+    // for(int i=0; i<words.size(); i++) {
+    //     for(int j=0; j<words[i].size(); j++) {
+    //         std::cout<< words[i][j] << " ";
+    //     }
+    //     std::cout<< std::endl;
+    // }
+
+
 
     std::cout<<count.size()<<std::endl;
 }
