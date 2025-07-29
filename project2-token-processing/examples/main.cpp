@@ -2,8 +2,12 @@
 #include"../include/token_processing/bpe.h"
 
 int main() {
-    std::cout<<"ITS HAPPENING"<<std::endl;
     BytePairAlgorithm tokenizer(100);
-    tokenizer.tokenize("meow meowo");
+    tokenizer.train(
+        {
+            "My name is Anas",
+            "I love playing football"
+        }
+    );
     return 0;
 }
