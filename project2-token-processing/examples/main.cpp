@@ -6,7 +6,8 @@ int main() {
     tokenizer.train(
         {
             "My name is Anas and I",
-            "I love playing football"
+            "I love playing football",
+            "I I I I"
         }
     );
     return 0;

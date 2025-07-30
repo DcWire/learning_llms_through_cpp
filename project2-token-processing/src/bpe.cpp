@@ -1,11 +1,4 @@
 #include "token_processing/bpe.h"
-// #include "bpe.h"
-#include <algorithm>
-#include <cctype>
-#include<vector>
-// #include<utility>
-// #include<unordered_map>
-#include<string>
 #include <iostream>
 
 
@@ -25,11 +18,19 @@ std::string BytePairAlgorithm::detokenize(const std::vector<std::string>& tokens
 }
 
 void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
+    // Store count of words
     std::unordered_map<std::string, int> count;
+    // Map words with index for now, can optimize
+    std::unordered_map<int, int> words_map;
+
+    int counter = 0;
+    // Store words
     std::vector<std::vector<std::string>> words;
 
+    int num_merges = 10;
+    std::vector<std::string> merges(num_merges);
+
     for(int i=0; i<corpus.size(); i++) {
-        // Can optimize this further by just initializing a single vector object
         std::vector<std::string> split_sentence = this->split(corpus[i], ' ');
 
         for(int k=0; k<split_sentence.size(); k++) {
@@ -44,18 +45,45 @@ void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
         }
         vec[i.first.length()] = "</w>";
         words.push_back(vec);
+
+        words_map[counter] = i.second;
+        ++counter;
     }
 
-    // for(int i=0; i<words.size(); i++) {
-    //     for(int j=0; j<words[i].size(); j++) {
-    //         std::cout<< words[i][j] << " ";
-    //     }
-    //     std::cout<< std::endl;
-    // }
 
 
 
-    std::cout<<count.size()<<std::endl;
+    // Run k times and perform a number of merges
+    for(int k=0; k<num_merges; k++) {
+        std::string max_pair = this->get_max_pair(words, words_map);
+        std::vector<std::vector<std::string>> new_words;
+
+        for(int i=0; i<words.size(); i++) {
+            std::vector<std::string> vec;
+            for(int j=0; j<words[i].size(); j++) {
+                if ((j < words[i].size() - 1) && (words[i][j]+words[i][j+1] == max_pair)) {
+                    vec.push_back(max_pair);
+                    j++;
+                } else {
+                    vec.push_back(words[i][j]);
+                }
+            }
+            new_words.push_back(vec);
+        }
+
+        words = new_words;
+
+        // for(int i=0; i<words.size(); i++) {
+        //     for(int j=0; j<words[i].size(); j++) {
+        //         std::cout<< words[i][j] << " ";
+        //     }
+        //     std::cout<< std::endl;
+        // }
+
+
+        merges[k] = max_pair;
+    }
+
 }
 
 
@@ -83,4 +111,24 @@ std::vector<std::string> BytePairAlgorithm::split(std::string s, const char& ch)
         ans.push_back(temp);
     }
     return ans;
+}
+
+std::string BytePairAlgorithm::get_max_pair(std::vector<std::vector<std::string>>& words, std::unordered_map<int, int>& words_map) {
+    std::map<std::pair<std::string, std::string>, int> count;
+
+    for(int i=0; i<words.size(); i++) {
+        for(int j=0; j<words[i].size()-1; j++) {
+            count[{words[i][j], words[i][j+1]}]+=words_map[i];
+        }
+    }
+    int mx = 0;
+    std::string max_pair;
+    for(auto &i: count) {
+        if(i.second > mx) {
+            mx = i.second;
+            max_pair = i.first.first + i.first.second;
+        }
+    }
+
+    return max_pair;
 }
