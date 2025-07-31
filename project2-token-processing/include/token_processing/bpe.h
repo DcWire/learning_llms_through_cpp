@@ -21,7 +21,7 @@ public:
 
 private:
     std::unordered_map<std::string, int> vocab;
-    std::vector<std::pair<std::string, std::string>> merges;
+    std::vector<std::string> merges;
     int vocab_size;
 };
 

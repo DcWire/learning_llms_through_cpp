@@ -50,9 +50,6 @@ void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
         ++counter;
     }
 
-
-
-
     // Run k times and perform a number of merges
     for(int k=0; k<num_merges; k++) {
         std::string max_pair = this->get_max_pair(words, words_map);
@@ -72,18 +69,23 @@ void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
         }
 
         words = new_words;
-
-        // for(int i=0; i<words.size(); i++) {
-        //     for(int j=0; j<words[i].size(); j++) {
-        //         std::cout<< words[i][j] << " ";
-        //     }
-        //     std::cout<< std::endl;
-        // }
-
-
         merges[k] = max_pair;
     }
 
+    this->merges = merges;
+
+    // Write vocabulary
+    this->vocab.clear();
+
+    int token_id = 0;
+
+    for(const auto& word: words) {
+        for(const auto& token: word) {
+            if(this->vocab.find(token) == this->vocab.end()) {
+                this->vocab[token] = token_id++;
+            }
+        }
+    }
 }
 
 
