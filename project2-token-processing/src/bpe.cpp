@@ -11,10 +11,6 @@ std::vector<std::string> BytePairAlgorithm::tokenize(const std::string& text) {
     if (this->vocab.size() == 0) {
         throw std::runtime_error("Training has probably not be run yet. Vocab size is 0");
     }
-
-    std::cout << "Converting to strings" << std::endl;
-    std::cout<< this->vocab_size <<std::endl;
-
     std::vector<std::string> split_text = this->split(text, ' ');
     std::vector<std::string> results;
 
@@ -39,8 +35,27 @@ std::vector<std::string> BytePairAlgorithm::tokenize(const std::string& text) {
 }
 
 std::string BytePairAlgorithm::detokenize(const std::vector<std::string>& tokens) {
-    // TODO: Implement detokenization
-    return "";
+
+    std::string s = "";
+    std::string result = "";
+    for(int i=0; i<tokens.size(); i++) {
+        int j = 0;
+        while(j < tokens[i].length()) {
+            if(tokens[i][j] == '<') {
+                result += s;
+                s = "";
+
+                if(i != tokens.size() - 1) {
+                    result += " ";
+                }
+                break;
+            }
+            s += tokens[i][j];
+            j++;
+        }
+    }
+
+    return result;
 }
 
 void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
