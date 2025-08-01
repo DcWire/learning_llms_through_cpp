@@ -1,5 +1,6 @@
 #include "token_processing/bpe.h"
 #include <iostream>
+#include <stdexcept>
 
 
 BytePairAlgorithm::BytePairAlgorithm(int vocab_size) {
@@ -7,9 +8,34 @@ BytePairAlgorithm::BytePairAlgorithm(int vocab_size) {
 }
 
 std::vector<std::string> BytePairAlgorithm::tokenize(const std::string& text) {
+    if (this->vocab.size() == 0) {
+        throw std::runtime_error("Training has probably not be run yet. Vocab size is 0");
+    }
+
     std::cout << "Converting to strings" << std::endl;
     std::cout<< this->vocab_size <<std::endl;
-    return {};
+
+    std::vector<std::string> split_text = this->split(text, ' ');
+    std::vector<std::string> results;
+
+    for(int i=0; i<split_text.size(); i++) {
+        std::string s = "";
+        // A flag to see if the word exists in the vocabulary
+        int count = 0;
+        split_text[i] += "</w>";
+        for(int j=0; j<split_text[i].length(); j++) {
+            s += split_text[i][j];
+            if (this->vocab.find(s) != this->vocab.end()) {
+                count++;
+                results.push_back(s);
+                s = "";
+            }
+        }
+        if (count == 0) {
+            throw std::runtime_error("A word hasn't been found in the vocab and cannot be converted to token");
+        }
+    }
+    return results;
 }
 
 std::string BytePairAlgorithm::detokenize(const std::vector<std::string>& tokens) {
@@ -86,6 +112,8 @@ void BytePairAlgorithm::train(const std::vector<std::string>& corpus) {
             }
         }
     }
+
+
 }
 
 

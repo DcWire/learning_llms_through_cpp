@@ -10,5 +10,13 @@ int main() {
             "I I I I"
         }
     );
+
+    std::vector<std::string> results = tokenizer.tokenize("My name is Anas and I");
+
+
+    for(int i=0; i<results.size(); i++) {
+        std::cout << results[i] << " ";
+    }
+
     return 0;
 }

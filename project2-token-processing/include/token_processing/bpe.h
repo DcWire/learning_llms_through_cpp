@@ -7,6 +7,7 @@
 #include<utility>
 #include<map>
 #include<cstring>
+#include<stdexcept>
 
 class BytePairAlgorithm : public TokenizerAlgorithm {
 public:
