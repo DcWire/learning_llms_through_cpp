@@ -17,18 +17,30 @@ std::vector<std::string> BytePairAlgorithm::tokenize(const std::string& text) {
     for(int i=0; i<split_text.size(); i++) {
         std::string s = "";
         // A flag to see if the word exists in the vocabulary
+        // TODO: This isn't right... need to apply merge rules on  each token
         int count = 0;
-        split_text[i] += "</w>";
+        std::vector<std::string> tokenized_text;
         for(int j=0; j<split_text[i].length(); j++) {
-            s += split_text[i][j];
-            if (this->vocab.find(s) != this->vocab.end()) {
-                count++;
-                results.push_back(s);
-                s = "";
-            }
+            tokenized_text.push_back(std::string(1, split_text[i][j]));
         }
-        if (count == 0) {
-            throw std::runtime_error("A word hasn't been found in the vocab and cannot be converted to token");
+        tokenized_text.push_back("</w>");
+
+
+        for(int j=0; j<this->merges.size(); j++) {
+            std::vector<std::string> tokenized_text_temp;
+            for(int k=0; k<tokenized_text.size(); k++) {
+                if((k<tokenized_text.size()-1) && (tokenized_text[k]+tokenized_text[k+1] == this->merges[j])) {
+                    tokenized_text_temp.push_back(tokenized_text[k]+tokenized_text[k+1]);
+                    k++;
+                } else {
+                    tokenized_text_temp.push_back(tokenized_text[k]);
+                }
+            }
+            tokenized_text = tokenized_text_temp;
+        }
+
+        for(int j=0; j<tokenized_text.size(); j++) {
+            results.push_back(tokenized_text[j]);
         }
     }
     return results;
