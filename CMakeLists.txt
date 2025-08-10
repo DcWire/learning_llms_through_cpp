@@ -13,3 +13,4 @@ enable_testing()
 # Add projects
 add_subdirectory(project1-llmvector)
 add_subdirectory(project2-token-processing)
+add_subdirectory(project3-multithreaded-tokens-processing)

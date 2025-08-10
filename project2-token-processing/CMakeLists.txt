@@ -1,4 +1,4 @@
-# Project 1: Vector
+# Project 2: Token Processing
 project(token_processing VERSION 0.1.0)
 
 add_library(
