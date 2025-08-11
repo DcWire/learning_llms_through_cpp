@@ -173,6 +173,32 @@ app/fast:
 	$(MAKE) -f project2-token-processing/examples/CMakeFiles/app.dir/build.make project2-token-processing/examples/CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+#=============================================================================
+# Target rules for targets named multi_threading_token_processing
+
+# Build rule for target.
+multi_threading_token_processing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multi_threading_token_processing
+.PHONY : multi_threading_token_processing
+
+# fast build rule for target.
+multi_threading_token_processing/fast:
+	$(MAKE) -f project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/build.make project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/build
+.PHONY : multi_threading_token_processing/fast
+
+#=============================================================================
+# Target rules for targets named app_1
+
+# Build rule for target.
+app_1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 app_1
+.PHONY : app_1
+
+# fast build rule for target.
+app_1/fast:
+	$(MAKE) -f project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/build.make project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/build
+.PHONY : app_1/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,6 +212,8 @@ help:
 	@echo "... vector_tests"
 	@echo "... token_processing"
 	@echo "... app"
+	@echo "... multi_threading_token_processing"
+	@echo "... app_1"
 .PHONY : help
 
 

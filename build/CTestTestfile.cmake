@@ -6,3 +6,4 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("project1-llmvector")
 subdirs("project2-token-processing")
+subdirs("project3-multithreaded-tokens-processing")

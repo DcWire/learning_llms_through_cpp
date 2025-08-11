@@ -20,3 +20,11 @@
 /teamspace/studios/this_studio/learning_llms_through_cpp/build/project2-token-processing/examples/CMakeFiles/edit_cache.dir
 /teamspace/studios/this_studio/learning_llms_through_cpp/build/project2-token-processing/examples/CMakeFiles/test.dir
 /teamspace/studios/this_studio/learning_llms_through_cpp/build/project2-token-processing/examples/CMakeFiles/app.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/CMakeFiles/rebuild_cache.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/CMakeFiles/edit_cache.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/CMakeFiles/test.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/examples/CMakeFiles/rebuild_cache.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/examples/CMakeFiles/edit_cache.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/examples/CMakeFiles/test.dir
+/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir

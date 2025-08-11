@@ -237,6 +237,12 @@ llm_vector_BINARY_DIR:STATIC=/teamspace/studios/this_studio/learning_llms_throug
 llm_vector_SOURCE_DIR:STATIC=/teamspace/studios/this_studio/learning_llms_through_cpp/project1-llmvector
 
 //Value Computed by CMake
+multi_threading_token_processing_BINARY_DIR:STATIC=/teamspace/studios/this_studio/learning_llms_through_cpp/build/project3-multithreaded-tokens-processing
+
+//Value Computed by CMake
+multi_threading_token_processing_SOURCE_DIR:STATIC=/teamspace/studios/this_studio/learning_llms_through_cpp/project3-multithreaded-tokens-processing
+
+//Value Computed by CMake
 token_processing_BINARY_DIR:STATIC=/teamspace/studios/this_studio/learning_llms_through_cpp/build/project2-token-processing
 
 //Value Computed by CMake
@@ -347,7 +353,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

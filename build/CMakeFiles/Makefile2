@@ -55,18 +55,21 @@ CMAKE_BINARY_DIR = /teamspace/studios/this_studio/learning_llms_through_cpp/buil
 # The main recursive "all" target.
 all: project1-llmvector/all
 all: project2-token-processing/all
+all: project3-multithreaded-tokens-processing/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: project1-llmvector/preinstall
 preinstall: project2-token-processing/preinstall
+preinstall: project3-multithreaded-tokens-processing/preinstall
 
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: project1-llmvector/clean
 clean: project2-token-processing/clean
+clean: project3-multithreaded-tokens-processing/clean
 
 .PHONY : clean
 
@@ -166,13 +169,51 @@ project2-token-processing/examples/clean: project2-token-processing/examples/CMa
 .PHONY : project2-token-processing/examples/clean
 
 #=============================================================================
+# Directory level rules for directory project3-multithreaded-tokens-processing
+
+# Recursive "all" directory target.
+project3-multithreaded-tokens-processing/all: project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/all
+project3-multithreaded-tokens-processing/all: project3-multithreaded-tokens-processing/examples/all
+
+.PHONY : project3-multithreaded-tokens-processing/all
+
+# Recursive "preinstall" directory target.
+project3-multithreaded-tokens-processing/preinstall: project3-multithreaded-tokens-processing/examples/preinstall
+
+.PHONY : project3-multithreaded-tokens-processing/preinstall
+
+# Recursive "clean" directory target.
+project3-multithreaded-tokens-processing/clean: project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/clean
+project3-multithreaded-tokens-processing/clean: project3-multithreaded-tokens-processing/examples/clean
+
+.PHONY : project3-multithreaded-tokens-processing/clean
+
+#=============================================================================
+# Directory level rules for directory project3-multithreaded-tokens-processing/examples
+
+# Recursive "all" directory target.
+project3-multithreaded-tokens-processing/examples/all: project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/all
+
+.PHONY : project3-multithreaded-tokens-processing/examples/all
+
+# Recursive "preinstall" directory target.
+project3-multithreaded-tokens-processing/examples/preinstall:
+
+.PHONY : project3-multithreaded-tokens-processing/examples/preinstall
+
+# Recursive "clean" directory target.
+project3-multithreaded-tokens-processing/examples/clean: project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/clean
+
+.PHONY : project3-multithreaded-tokens-processing/examples/clean
+
+#=============================================================================
 # Target rules for target project1-llmvector/examples/CMakeFiles/vector_example.dir
 
 # All Build rule for target.
 project1-llmvector/examples/CMakeFiles/vector_example.dir/all:
 	$(MAKE) -f project1-llmvector/examples/CMakeFiles/vector_example.dir/build.make project1-llmvector/examples/CMakeFiles/vector_example.dir/depend
 	$(MAKE) -f project1-llmvector/examples/CMakeFiles/vector_example.dir/build.make project1-llmvector/examples/CMakeFiles/vector_example.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=5,6 "Built target vector_example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=9,10 "Built target vector_example"
 .PHONY : project1-llmvector/examples/CMakeFiles/vector_example.dir/all
 
 # Build rule for subdir invocation for target.
@@ -199,7 +240,7 @@ project1-llmvector/examples/CMakeFiles/vector_example.dir/clean:
 project1-llmvector/tests/CMakeFiles/vector_tests.dir/all:
 	$(MAKE) -f project1-llmvector/tests/CMakeFiles/vector_tests.dir/build.make project1-llmvector/tests/CMakeFiles/vector_tests.dir/depend
 	$(MAKE) -f project1-llmvector/tests/CMakeFiles/vector_tests.dir/build.make project1-llmvector/tests/CMakeFiles/vector_tests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=7,8 "Built target vector_tests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=11,12 "Built target vector_tests"
 .PHONY : project1-llmvector/tests/CMakeFiles/vector_tests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -226,7 +267,7 @@ project1-llmvector/tests/CMakeFiles/vector_tests.dir/clean:
 project2-token-processing/CMakeFiles/token_processing.dir/all:
 	$(MAKE) -f project2-token-processing/CMakeFiles/token_processing.dir/build.make project2-token-processing/CMakeFiles/token_processing.dir/depend
 	$(MAKE) -f project2-token-processing/CMakeFiles/token_processing.dir/build.make project2-token-processing/CMakeFiles/token_processing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=3,4 "Built target token_processing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=7,8 "Built target token_processing"
 .PHONY : project2-token-processing/CMakeFiles/token_processing.dir/all
 
 # Build rule for subdir invocation for target.
@@ -272,6 +313,60 @@ app: project2-token-processing/examples/CMakeFiles/app.dir/rule
 project2-token-processing/examples/CMakeFiles/app.dir/clean:
 	$(MAKE) -f project2-token-processing/examples/CMakeFiles/app.dir/build.make project2-token-processing/examples/CMakeFiles/app.dir/clean
 .PHONY : project2-token-processing/examples/CMakeFiles/app.dir/clean
+
+#=============================================================================
+# Target rules for target project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir
+
+# All Build rule for target.
+project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/all:
+	$(MAKE) -f project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/build.make project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/depend
+	$(MAKE) -f project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/build.make project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=5,6 "Built target multi_threading_token_processing"
+.PHONY : project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/all
+
+# Build rule for subdir invocation for target.
+project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 0
+.PHONY : project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/rule
+
+# Convenience name for target.
+multi_threading_token_processing: project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/rule
+
+.PHONY : multi_threading_token_processing
+
+# clean rule for target.
+project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/clean:
+	$(MAKE) -f project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/build.make project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/clean
+.PHONY : project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/clean
+
+#=============================================================================
+# Target rules for target project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir
+
+# All Build rule for target.
+project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/all: project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/all
+	$(MAKE) -f project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/build.make project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/depend
+	$(MAKE) -f project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/build.make project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles --progress-num=3,4 "Built target app_1"
+.PHONY : project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/all
+
+# Build rule for subdir invocation for target.
+project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /teamspace/studios/this_studio/learning_llms_through_cpp/build/CMakeFiles 0
+.PHONY : project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/rule
+
+# Convenience name for target.
+app_1: project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/rule
+
+.PHONY : app_1
+
+# clean rule for target.
+project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/clean:
+	$(MAKE) -f project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/build.make project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/clean
+.PHONY : project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -16,6 +16,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "../project1-llmvector/tests/CMakeLists.txt"
   "../project2-token-processing/CMakeLists.txt"
   "../project2-token-processing/examples/CMakeLists.txt"
+  "../project3-multithreaded-tokens-processing/CMakeLists.txt"
+  "../project3-multithreaded-tokens-processing/examples/CMakeLists.txt"
   "/usr/share/cmake-3.16/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.16/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
@@ -51,6 +53,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "project1-llmvector/tests/CMakeFiles/CMakeDirectoryInformation.cmake"
   "project2-token-processing/CMakeFiles/CMakeDirectoryInformation.cmake"
   "project2-token-processing/examples/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "project3-multithreaded-tokens-processing/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "project3-multithreaded-tokens-processing/examples/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -59,4 +63,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "project1-llmvector/tests/CMakeFiles/vector_tests.dir/DependInfo.cmake"
   "project2-token-processing/CMakeFiles/token_processing.dir/DependInfo.cmake"
   "project2-token-processing/examples/CMakeFiles/app.dir/DependInfo.cmake"
+  "project3-multithreaded-tokens-processing/CMakeFiles/multi_threading_token_processing.dir/DependInfo.cmake"
+  "project3-multithreaded-tokens-processing/examples/CMakeFiles/app_1.dir/DependInfo.cmake"
   )
