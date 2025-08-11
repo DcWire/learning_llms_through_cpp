@@ -14,6 +14,22 @@ private:
     std::vector<std::thread> worker_threads;
     std::atomic<bool> should_terminate{false};
 
+    // Simulated LLM token processing function
+    void process_token_batch(const std::vector<std::string>& batch, int thread_id) {
+        std::cout << "Thread " << thread_id << " processing " << batch.size() << " tokens\n";
+        // Simulate processing time
+        std::this_thread::sleep_for(std::chrono::milliseconds(100 * batch.size()));
+    }
+
+    void worker_loop(int id) {
+        while (true) {
+            auto batch = work_queue.dequeue();
+            if (!batch.has_value()) {
+                break;
+            }
+            process_token_batch(*batch, id);
+        }
+    }
 public:
     LLMInferenceEngine(int num_threads);
     ~LLMInferenceEngine();

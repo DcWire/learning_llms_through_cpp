@@ -52,3 +52,23 @@ bool ThreadSafeQueue<T>::empty() const {
     std::lock_guard<std::mutex> lock(mutex);
     return queue.empty();
 }
+
+LLMInferenceEngine::LLMInferenceEngine(int num_threads) {
+    for (int i=0; i<num_threads; i++) {
+        worker_threads.emplace_back(&LLMInferenceEngine::worker_loop, i)
+    }
+}
+
+LLMInferenceEngine::~LLMInferenceEngine() {
+    // TODO: Stop all threads
+    work_queue.stop();
+    for(auto &i: worker_threads) {
+        if (i.joinable()) {
+            i.join();
+        }
+    }
+}
+
+void LLMInferenceEngine::submit(const std::vector<std::string>& token_batch) {
+    work_queue.enqueue(token_batch);
+}
