@@ -55,7 +55,7 @@ bool ThreadSafeQueue<T>::empty() const {
 
 LLMInferenceEngine::LLMInferenceEngine(int num_threads) {
     for (int i=0; i<num_threads; i++) {
-        worker_threads.emplace_back(&LLMInferenceEngine::worker_loop, i)
+        worker_threads.emplace_back(&LLMInferenceEngine::worker_loop, i);
     }
 }
 
