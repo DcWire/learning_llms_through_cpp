@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/vector_tests.dir/llmvector_tests.cpp.o  -o vector_tests 
